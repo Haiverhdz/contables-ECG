@@ -1,46 +1,73 @@
-# Astro Starter Kit: Basics
+💼 Contables ECG
 
-```sh
-npm create astro@latest -- --template basics
-```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Contables ECG es una plataforma web moderna y accesible que ofrece servicios de asesoría contable y tributaria para personas naturales, emprendedores y pequeñas empresas. Nuestro objetivo es proporcionar soluciones integrales y personalizadas que faciliten la toma de decisiones estratégicas y el cumplimiento de obligaciones fiscales.
 
-## 🚀 Project Structure
+🚀 Características
 
-Inside of your Astro project, you'll see the following folders and files:
+Diseño Responsivo: Optimizado para dispositivos móviles y de escritorio.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Interactividad: Formularios de contacto dinámicos con validación en tiempo real.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Animaciones Modernas: Efectos visuales suaves para una experiencia de usuario atractiva.
 
-## 🧞 Commands
+Integración de Contacto: Enlaces directos para contactar vía WhatsApp y correo electrónico.
 
-All commands are run from the root of the project, from a terminal:
+🛠️ Tecnologías Utilizadas
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Astro: Framework para la construcción de sitios web rápidos y optimizados.
 
-## 👀 Want to learn more?
+Tailwind CSS: Framework de diseño para una estilización eficiente y personalizable.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Vite: Herramienta de construcción para una experiencia de desarrollo ágil.
+
+JavaScript: Lenguaje de programación para la interactividad del sitio.
+
+📥 Instalación
+
+Clona este repositorio:
+
+git clone https://github.com/Haiverhdz/contables-ECG.git
+
+
+Navega al directorio del proyecto:
+
+cd contables-ECG
+
+
+Instala las dependencias:
+
+npm install
+
+
+Inicia el servidor de desarrollo:
+
+npm run dev
+
+
+El sitio estará disponible en http://localhost:3000.
+
+📧 Contacto
+
+Correo Electrónico: haiverhercas@gmail.com
+
+WhatsApp: +57 311 704 5106
+
+🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, por favor sigue estos pasos:
+
+Haz un fork de este repositorio.
+
+Crea una nueva rama (git checkout -b feature/nueva-caracteristica).
+
+Realiza tus cambios y haz commit (git commit -am 'Añadir nueva característica').
+
+Haz push a la rama (git push origin feature/nueva-caracteristica).
+
+Abre un Pull Request describiendo tus cambios.
+
+📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE
+ para más detalles.

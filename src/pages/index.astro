@@ -1,11 +1,131 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio - Contables-ECG">
+  <section
+  class="relative bg-cover bg-center"
+  style="background-image: url('/images/servicio.jpeg');"
+>
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 py-48 text-center flex flex-col items-center justify-center">
+    <h2 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4 animate-fadeIn">
+      ¡Bienvenido a Contables ECG!
+    </h2>
+    <p class="text-lg md:text-2xl text-gray-200 mb-8 drop-shadow-md">
+      Servicios contables y financieros de confianza para empresas y personas.
+    </p>
+
+    <a
+      href="/servicios"
+      class="bg-yellow-400 text-blue-900 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-yellow-300 transition-all"
+    >
+      Conoce nuestros servicios
+    </a>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+  }
+</style>
+
+  <div class="h-12"></div> 
+
+  <section class="bg-black/50 text-white py-8 mb-10">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center px-4">
+      <img
+        src="/images/renta.jpg"
+        alt="Calendario Tributario"
+        class="rounded-lg shadow-md object-cover"
+      />
+  
+      <div>
+        <h2 class="text-2xl font-bold mb-2">📅 Calendario Tributario</h2>
+        <p class="mb-4">
+          Consulta las fechas clave para tus obligaciones fiscales y evita sanciones. Este calendario
+          incluye vencimientos de declaración de renta, IVA, retenciones y otros impuestos según
+          tu tipo de contribuyente.
+        </p>
+        <p class="font-semibold">
+          📝 Recuerda: organiza tus documentos y cumple con tus obligaciones tributarias a tiempo.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="bg-black/50 text-whithe py-8 mb-10">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center px-4">
+      <img
+        src="/images/info_sep.JPG"
+        alt="Vencimientos declaración de renta septiembre"
+        class="rounded-lg shadow-md object-cover"
+      />
+
+      <div>
+        <h2 class="text-2xl font-bold mb-2">📅 Vencimientos de declaración de renta</h2>
+        <p class="mb-4">
+          Recuerda que durante septiembre vencen las declaraciones de renta según los dos últimos
+          dígitos de tu cédula. Es importante presentar la declaración a tiempo para evitar sanciones.
+        </p>
+        <p class="font-semibold">
+          📝 A tener en cuenta: revisa tu fecha límite y prepara tus documentos con anticipación.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8">
+    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
+      <div class="text-5xl mb-4">📊</div>
+      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Contabilidad General</h2>
+      <ul class="list-disc list-inside text-left space-y-2">
+        <li>Registro y control de operaciones contables.</li>
+        <li>Elaboración de estados financieros bajo NIIF.</li>
+        <li>Conciliaciones bancarias y revisión de cuentas.</li>
+        <li>Contabilidad mensual, trimestral o anual.</li>
+      </ul>
+    </div>
+  
+    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
+      <div class="text-5xl mb-4">💼</div>
+      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Asesoría Tributaria</h2>
+      <ul class="list-disc list-inside text-left space-y-2">
+        <li>Declaración de renta personas naturales y jurídicas.</li>
+        <li>Declaraciones de IVA, retención en la fuente, ICA, entre otros.</li>
+        <li>Planeación tributaria para optimizar cargas fiscales.</li>
+        <li>Atención de requerimientos por parte de la DIAN y entes territoriales.</li>
+      </ul>
+    </div>
+  
+    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
+      <div class="text-5xl mb-4">👥</div>
+      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Nómina y Seguridad Social</h2>
+      <ul class="list-disc list-inside text-left space-y-2">
+        <li>Liquidación de nómina mensual y prestaciones sociales.</li>
+        <li>Elaboración de planillas PILA.</li>
+        <li>Asesoría laboral y cumplimiento normativo.</li>
+      </ul>
+    </div>
+  
+    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
+      <div class="text-5xl mb-4">🏢</div>
+      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Constitución y Formalización de Empresas</h2>
+      <ul class="list-disc list-inside text-left space-y-2">
+        <li>Acompañamiento en el proceso de creación de empresas.</li>
+        <li>Registro en Cámara de Comercio y DIAN.</li>
+        <li>Asesoría en elección de régimen tributario.</li>
+        <li>Diseño de estructura contable y administrativa.</li>
+      </ul>
+    </div>
+  </section>
+  
 </Layout>

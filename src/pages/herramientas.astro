@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Herramientas Contables - Contables ECG">
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center text-yellow-300 mb-6">
+        Herramientas Contables
+      </h1>
+      <p class="text-center text-lg text-whithe-600 mb-10">
+        Calcula fácilmente valores contables básicos para tu empresa o negocio.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Calculadora IVA -->
+        <div class="bg-white/80 shadow rounded-2xl p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-blue-700 text-center">Calculadora IVA</h2>
+          <form id="ivaForm" class="space-y-4">
+            <div>
+              <label for="valor" class="block text-sm font-medium text-gray-700">Valor sin IVA:</label>
+              <input type="number" id="valor" class="mt-1 block w-full  text-black border border-gray-800 rounded-md p-2" required />
+            </div>
+            <div>
+              <label for="tarifa" class="block text-black text-sm font-medium text-gray-700">Tarifa IVA:</label>
+              <select id="tarifa" class="mt-1 block w-full text-black border border-gray-800 rounded-md p-2">
+                <option value="0.19">19%</option>
+                <option value="0.05">5%</option>
+                <option value="0">0%</option>
+              </select>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Calcular</button>
+          </form>
+          <div id="resultadoIVA" class="mt-4 text-center text-gray-700"></div>
+        </div>
+
+        <div class="bg-white/80 shadow rounded-2xl p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-blue-700 text-center">Retención en la Fuente</h2>
+          <form id="retForm" class="space-y-4">
+            <div>
+              <label for="valorRet" class="block text-sm font-medium text-black">Valor del pago:</label>
+              <input
+                type="number"
+                id="valorRet"
+                class="mt-1 text-black block w-full border border-gray-800 rounded-md p-2"
+                step="0.01"
+                required
+              />
+            </div>
+            <div>
+              <label for="tarifaRet" class="block text-sm font-medium text-black">Tarifa Retención (%):</label>
+              <input
+                type="number"
+                id="tarifaRet"
+                class="mt-1 text-black block w-full border border-gray-800 rounded-md p-2"
+                placeholder="Ej. 10"
+                step="0.01"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Calcular
+            </button>
+          </form>
+          <div id="resultadoRet" class="mt-4 text-center text-gray-700"></div>
+        </div>
+        
+        <div class="bg-white/80 shadow rounded-2xl p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-blue-700 text-center">Simulador de Nómina</h2>
+          <form id="nominaForm" class="space-y-4">
+            <div>
+              <label for="salario" class="block text-sm font-medium text-gray-700">Salario Básico:</label>
+              <input type="number" id="salario" class="mt-1 text-black block w-full border border-gray-800 rounded-md p-2" required />
+            </div>
+            <div>
+              <label for="dias" class="block text-sm font-medium text-gray-700">Días Trabajados:</label>
+              <input type="number" id="dias" class="mt-1 block text-black w-full border border-gray-800 rounded-md p-2" value="30" required />
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Calcular</button>
+          </form>
+          <div id="resultadoNomina" class="mt-4 text-center text-gray-700"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // IVA
+      document.getElementById('ivaForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const valor = parseFloat(document.getElementById('valor').value);
+        const tarifa = parseFloat(document.getElementById('tarifa').value);
+        const iva = valor * tarifa;
+        const total = valor + iva;
+        document.getElementById('resultadoIVA').innerHTML =
+          `<p>IVA: <strong>$${iva.toLocaleString()}</strong></p>
+           <p>Total con IVA: <strong>$${total.toLocaleString()}</strong></p>`;
+      });
+
+      document.getElementById('retForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const valor = parseFloat(document.getElementById('valorRet').value);
+        const tarifaRet = parseFloat(document.getElementById('tarifaRet').value) / 100;
+        const retencion = valor * tarifaRet;
+        const neto = valor - retencion;
+        document.getElementById('resultadoRet').innerHTML =
+          `<p>Retención: <strong>$${retencion.toLocaleString()}</strong></p>
+           <p>Neto a pagar: <strong>$${neto.toLocaleString()}</strong></p>`;
+      });
+
+      document.getElementById('nominaForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const salario = parseFloat(document.getElementById('salario').value);
+        const dias = parseFloat(document.getElementById('dias').value);
+        const salarioDia = salario / 30;
+        const salarioDevengado = salarioDia * dias;
+
+        const salud = salarioDevengado * 0.04;
+        const pension = salarioDevengado * 0.04;
+        const neto = salarioDevengado - salud - pension;
+
+        document.getElementById('resultadoNomina').innerHTML =
+          `<p>Salario Devengado: <strong>$${salarioDevengado.toLocaleString()}</strong></p>
+           <p>Descuento Salud: <strong>$${salud.toLocaleString()}</strong></p>
+           <p>Descuento Pensión: <strong>$${pension.toLocaleString()}</strong></p>
+           <p><strong>Neto a Pagar: $${neto.toLocaleString()}</strong></p>`;
+      });
+    });
+  </script>
+</Layout>

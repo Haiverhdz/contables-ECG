@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Nosotros - Contables ECG">
+  <section class="py-12 bg-black/20 text-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="bg-black/10 rounded-xl p-10 mb-12 text-center">
+        <h1 class="text-4xl font-bold text-yellow-400 mb-6 animate-slideFade">
+          ¿Quiénes Somos?
+        </h1>
+
+        <div class="space-y-6 text-lg text-gray-200 leading-relaxed">
+          <p>
+            Somos una firma de asesoría contable y tributaria comprometida con el crecimiento sostenible y la tranquilidad financiera de nuestros clientes.
+          </p>
+          <p>
+            Ofrecemos soluciones integrales y personalizadas para personas naturales, emprendedores y pequeñas empresas, acompañándolos en la toma de decisiones estratégicas y en el cumplimiento oportuno de sus obligaciones fiscales.
+          </p>
+          <p>
+            Combinamos experiencia técnica con una visión estratégica del negocio para impulsar resultados y generar confianza. Más que un proveedor de servicios, somos su aliado en el camino hacia la estabilidad y el éxito financiero.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <img 
+          src="/images/equipo.jpeg" 
+          alt="Nuestro equipo 1" 
+          class="rounded-xl shadow-lg object-cover w-full h-80"
+        />
+        <img 
+          src="/images/equipo2.jpg" 
+          alt="Nuestro equipo 2" 
+          class="rounded-xl shadow-lg object-cover w-full h-80"
+        />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes slideFade {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-slideFade {
+      animation: slideFade 1s ease-out forwards;
+    }
+  </style>
+</Layout>
