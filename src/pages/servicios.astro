@@ -2,60 +2,79 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Contáctanos - Contables ECG">
-  <section class="py-12 bg-gray-900 text-white">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h1 class="text-4xl font-bold mb-6 text-yellow-400 animate-slideFade">
-        Contáctanos
+<Layout title="Servicios - Contables ECG">
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center animate-fadeIn text-yellow-400">
+        Nuestros Servicios
       </h1>
-      <p class="text-lg mb-10">
-        Elige tu método de contacto y envíanos un mensaje directamente.
+      <p class="text-center animate-fadeIn text-lg text-whithe-600 mb-10">
+        Ofrecemos soluciones integrales en materia contable y financiera para empresas y personas.
       </p>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        <div class="bg-green-600/80 rounded-xl p-6 shadow-lg hover:bg-green-700 transition cursor-pointer">
-          <a
-            href="https://wa.me/573117045106"
-            target="_blank"
-            class="flex flex-col items-center justify-center gap-4"
-          >
-            <span class="text-5xl">💬</span>
-            <h2 class="text-2xl font-bold">WhatsApp</h2>
-            <p class="text-white/90">Chatea con nosotros directamente y recibe respuesta rápida.</p>
-            <span class="bg-white text-green-600 px-4 py-2 rounded-full font-semibold hover:bg-green-100 transition">Enviar mensaje</span>
-          </a>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Contabilidad General -->
+        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
+          <div class="text-5xl mb-4">📊</div>
+          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Contabilidad General</h2>
+          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
+            <li>Registro y control de operaciones contables.</li>
+            <li>Elaboración de estados financieros bajo NIIF.</li>
+            <li>Conciliaciones bancarias y revisión de cuentas.</li>
+            <li>Contabilidad mensual, trimestral o anual.</li>
+          </ul>
         </div>
 
-        <div class="bg-blue-600/80 rounded-xl p-6 shadow-lg hover:bg-blue-700 transition cursor-pointer">
-          <a
-            href="mailto:haiverhercas@gmail.com?subject=Consulta%20Contable&body=Hola,%20quiero%20información%20sobre%20tus%20servicios."
-            target="_blank"
-            class="flex flex-col items-center justify-center gap-4"
-          >
-            <span class="text-5xl">✉️</span>
-            <h2 class="text-2xl font-bold">Correo</h2>
-            <p class="text-white/90">Envíanos un correo con tu consulta y te responderemos pronto.</p>
-            <span class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold hover:bg-blue-100 transition">Enviar correo</span>
-          </a>
+        <!-- Asesoría Tributaria -->
+        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
+          <div class="text-5xl mb-4">💼</div>
+          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Asesoría Tributaria</h2>
+          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
+            <li>Declaración de renta personas naturales y jurídicas.</li>
+            <li>Declaraciones de IVA, retención en la fuente, ICA, entre otros.</li>
+            <li>Planeación tributaria para optimizar cargas fiscales.</li>
+            <li>Atención de requerimientos por parte de la DIAN y entes territoriales.</li>
+          </ul>
+        </div>
+
+        <!-- Nómina y Seguridad Social -->
+        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
+          <div class="text-5xl mb-4">👥</div>
+          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Nómina y Seguridad Social</h2>
+          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
+            <li>Liquidación de nómina mensual y prestaciones sociales.</li>
+            <li>Elaboración de planillas PILA.</li>
+            <li>Asesoría laboral y cumplimiento normativo.</li>
+          </ul>
+        </div>
+
+        <!-- Constitución y Formalización de Empresas -->
+        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
+          <div class="text-5xl mb-4">🏢</div>
+          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Constitución y Formalización de Empresas</h2>
+          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
+            <li>Acompañamiento en el proceso de creación de empresas.</li>
+            <li>Registro en Cámara de Comercio y DIAN.</li>
+            <li>Asesoría en elección de régimen tributario.</li>
+            <li>Diseño de estructura contable y administrativa.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <style>
-    @keyframes slideFade {
-      0% {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-slideFade {
-      animation: slideFade 1s ease-out forwards;
-    }
-  </style>
+  <!-- Sección foto equipo -->
+  <section class="relative py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-yellow-300">Nuestro Equipo</h2>
+      <p class="text-whithe-600 mb-6">
+        Conoce a las personas que hacen posible cada servicio.
+      </p>
+      <img 
+        src="/images/quienes-somos.jpg" 
+        alt="Equipo de trabajo Contables ECG" 
+        class="rounded-2xl shadow-lg mx-auto max-h-[400px] object-cover"
+      />
+    </div>
+  </section>
 </Layout>
