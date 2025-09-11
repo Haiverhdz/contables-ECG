@@ -3,9 +3,9 @@ import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  output: 'server', 
-  adapter: vercel(), 
+  output: 'static', 
+  adapter: vercel(),
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });
