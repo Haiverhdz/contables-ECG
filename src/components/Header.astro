@@ -6,42 +6,46 @@ const currentPath = Astro.url.pathname;
 
 <header class="fixed top-4 left-1/2 -translate-x-1/2 
 text-white backdrop-blur-md bg-white/50 
-w-[1120px] h-[95px] rounded-2xl z-50 shadow-md p-4 text-center">
-  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-2">
+w-[95%] md:w-[1120px] h-[75px] md:h-[95px] 
+rounded-2xl z-50 shadow-md px-4 flex items-center">
+  <div class="w-full flex justify-between items-center">
+    <!-- Logo -->
     <a href="/" class="flex items-center space-x-3">
-      <img src="/images/logo3.png" alt="Logo Contables ECG" class="h-14 w-36 rounded-lg shadow-md object-cover"/>
-      <span class="sr-only">Contaduría XYZ</span>
+      <img src="/images/logo3.png" alt="Logo Contables ECG" class="h-12 md:h-14 w-28 md:w-36 rounded-lg shadow-md object-cover"/>
+      <span class="sr-only">Contables ECG</span>
     </a>
 
+    <!-- Botón hamburguesa solo en móvil -->
     <button id="menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white">
       <svg class="fill-current h-5 w-5" viewBox="0 0 20 20">
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
       </svg>
     </button>
 
-    <nav class="hidden md:flex text-lg  items-center space-x-4">
+    <!-- Menú escritorio -->
+    <nav class="hidden md:flex text-lg items-center space-x-4">
       <a href="/" class={`px-3 py-2 transition-colors ${currentPath === '/' ? 'text-blue-800 font-semibold' : 'text-white'} border-r border-white/30 last:border-r-0`}>Inicio</a>
       <a href="/servicios" class={`px-3 py-2 transition-colors ${currentPath === '/servicios' ? 'text-blue-800 font-semibold' : 'text-white'} border-r border-white/30 last:border-r-0`}>Servicios</a>
       <a href="/nosotros" class={`px-3 py-2 transition-colors ${currentPath === '/nosotros' ? 'text-blue-800 font-semibold' : 'text-white'} border-r border-white/30 last:border-r-0`}>Nosotros</a>
       <a href="/contacto" class={`px-3 py-2 transition-colors ${currentPath === '/contacto' ? 'text-blue-800 font-semibold' : 'text-white'} border-r border-white/30 last:border-r-0`}>Contacto</a>
-      <a href="/herramientas" class={`px-3 py-2 transition-colors ${currentPath === '/herramientas' ? 'text-blue-800 font-semibold' : 'text-white'} border-r border-white/30 last:border-r-0`}>Herramientas</a>
+      <a href="/herramientas" class={`px-3 py-2 transition-colors ${currentPath === '/herramientas' ? 'text-blue-800 font-semibold' : 'text-white'}`}>Herramientas</a>
     </nav>
   </div>
-  
-  <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out bg-blue-700">
-    <nav class="flex  flex-col space-y-2 p-4">
-      <a href="/" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-800'}`}>Inicio</a>
-      <a href="/servicios" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/servicios' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-800'}`}>Servicios</a>
-      <a href="/nosotros" class={`px-3  py-2 rounded-md transition-colors ${currentPath === '/nosotros' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-800'}`}>Nosotros</a>
-      <a href="/contacto" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/contacto' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-800'}`}>Contacto</a>
-      <a href="/herramientas" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/herramientas' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-800'}`}>Herramientas</a>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out 
+  backdrop-blur-md bg-blue-800/80 rounded-b-2xl shadow-lg">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="/" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Inicio</a>
+      <a href="/servicios" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/servicios' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Servicios</a>
+      <a href="/nosotros" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/nosotros' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Nosotros</a>
+      <a href="/contacto" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/contacto' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Contacto</a>
+      <a href="/herramientas" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/herramientas' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Herramientas</a>
     </nav>
   </div>
 </header>
 
-<div class="pt-20">
-
-</div>
+<div class="pt-24"></div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
