@@ -15,14 +15,12 @@ rounded-2xl z-50 shadow-md px-4 flex items-center">
       <span class="sr-only">Contables ECG</span>
     </a>
 
-    <!-- Botón hamburguesa solo en móvil -->
     <button id="menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white">
       <svg class="fill-current h-5 w-5" viewBox="0 0 20 20">
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
       </svg>
     </button>
 
-    <!-- Menú escritorio -->
     <nav class="hidden md:flex text-lg items-center space-x-4">
       <a href="/" class={`px-3 py-2 transition-colors ${currentPath === '/' ? 'text-blue-800 font-semibold' : 'text-white'} border-r border-white/30 last:border-r-0`}>Inicio</a>
       <a href="/servicios" class={`px-3 py-2 transition-colors ${currentPath === '/servicios' ? 'text-blue-800 font-semibold' : 'text-white'} border-r border-white/30 last:border-r-0`}>Servicios</a>
@@ -32,10 +30,9 @@ rounded-2xl z-50 shadow-md px-4 flex items-center">
     </nav>
   </div>
 
-  <!-- Menú móvil -->
   <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out 
-  backdrop-blur-md bg-blue-800/80 rounded-b-2xl shadow-lg">
-    <nav class="flex flex-col space-y-2 p-4">
+  backdrop-blur-md bg-white/50 text-black rounded-2xl shadow-lg">
+    <nav class="flex rounded-2xl  flex-col space-y-2 p-4">
       <a href="/" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Inicio</a>
       <a href="/servicios" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/servicios' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Servicios</a>
       <a href="/nosotros" class={`px-3 py-2 rounded-md transition-colors ${currentPath === '/nosotros' ? 'bg-yellow-100 text-blue-800' : 'hover:bg-blue-700/80'}`}>Nosotros</a>
