@@ -36,4 +36,9 @@ body::before {
   .animate-fadeIn {
     animation: fadeIn 1s ease-out forwards;
   }
+
+  .backdrop-blur-3xl {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
   
