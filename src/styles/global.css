@@ -1,7 +1,7 @@
 @import "tailwindcss";
 /* global.css */
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Ayuthaya', sans-serif;
   background:  Linear-gradient(to right, #1717ec, #5cc6db, #58ffe0);
   background-size: cover;
   background-position: center;
@@ -37,7 +37,7 @@ body::before {
     animation: fadeIn 1s ease-out forwards;
   }
 
-  .backdrop-blur-3xl {
+  .backdrop-blur-xl {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
