@@ -42,3 +42,6 @@ body::before {
     -webkit-backdrop-filter: blur(20px);
   }
   
+.info-marzo{
+  color:#7171f5;
+}

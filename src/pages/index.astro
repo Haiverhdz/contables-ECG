@@ -1,4 +1,4 @@
----
+npm---
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Inicio - Contables ECG">
@@ -30,25 +30,43 @@ import Layout from '../layouts/Layout.astro';
 
   <div class="h-12"></div> 
 
-  <section class="bg-black/50 text-white rounded-3xl py-8 mb-10">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center px-4">
+<section class="bg-black/50 text-white rounded-3xl py-8 mb-10">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center px-4">
+
+    <!-- CARRUSEL -->
+    <div class="relative">
       <img
-        src="/images/info-feb-2026.png"
-        alt="Calendario Tributario"
-        class="rounded-lg shadow-md object-cover"
+        src="/images/info-marzo-1.webp"
+        id="img1"
+        class="rounded-lg shadow-md object-cover absolute w-full transition-opacity duration-1000 opacity-100"
       />
-  
-      <div>
-        <h2 class="text-4xl font-bold mb-2">📣 Fecha límite para pagar cesantías</h2>
-        <p class="mb-4">
-          <br>
-        </p>
-        <p class="text-2xl font-semibold">
-          📝 Recuerda cumplir con tus obligaciones laborales a tiempo y evita multas.
-        </p>
-      </div>
+
+      <img
+        src="/images/info-marzo-2.webp"
+        id="img2"
+        class="rounded-lg shadow-md object-cover w-full transition-opacity duration-1000 opacity-0"
+      />
     </div>
-  </section>
+
+    <!-- TEXTO -->
+    <div>
+      <h2 class="text-4xl font-bold mb-2">📣 Atención contribuyentes!</h2>
+
+      <p class="mb-4"></p>
+
+      <p class="text-2xl font-semibold">
+        📝 Si tienes dudas sobre cómo aplicar estos beneficios o si puedes acogerte,
+        <a
+          href="https://api.whatsapp.com/send/?phone=573117045106"
+          class="info-marzo"
+        >
+          escríbeme y revisamos tu caso.
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
 
   <section class="bg-black/50 rounded-3xl text-white py-6 mb-8">
     <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 items-center px-4">
@@ -123,3 +141,24 @@ import Layout from '../layouts/Layout.astro';
     }
   </style>
 </Layout>
+
+<script>
+let img1 = document.getElementById("img1")
+let img2 = document.getElementById("img2")
+
+let showingFirst = true
+
+setInterval(() => {
+
+  if(showingFirst){
+    img1.style.opacity = "0"
+    img2.style.opacity = "1"
+  }else{
+    img1.style.opacity = "1"
+    img2.style.opacity = "0"
+  }
+
+  showingFirst = !showingFirst
+
+}, 10000)
+</script>
