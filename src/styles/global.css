@@ -2,7 +2,7 @@
 /* global.css */
 html, body {
   font-family: 'Nadeem', sans-serif;
-  background:  Linear-gradient(to right, #1717ec, #5cc6db, #58ffe0);
+  background:  Linear-gradient(to right, #1717ec, #5cc6dbaf, #58ffe098);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
