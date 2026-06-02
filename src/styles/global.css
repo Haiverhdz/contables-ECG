@@ -1,14 +1,12 @@
 @import "tailwindcss";
 /* global.css */
-body {
+html, body {
   font-family: 'Nadeem', sans-serif;
   background:  Linear-gradient(to right, #1717ec, #5cc6db, #58ffe0);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
   background-attachment: fixed; 
-
-
   position: relative;
   color: white; 
 
