@@ -6,9 +6,18 @@ import "../styles/global.css";
 
 export interface Props {
   title?: string;
+  description?: string;
+  image?: string;
 }
 
-const { title = "Contables ECG" } = Astro.props;
+const {
+  title = "Contables ECG",
+  description = "Equipo de contadores públicos en Antioquia. Asesoría tributaria, contabilidad, nómina y declaraciones al día, con la precisión que exige la DIAN.",
+  image = "/images/logo2.png",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <html lang="es">
@@ -23,6 +32,24 @@ const { title = "Contables ECG" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Contables ECG" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/png" href="/images/logo.png" />
