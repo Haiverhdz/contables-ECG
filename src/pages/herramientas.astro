@@ -3,56 +3,73 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Herramientas Contables - Contables ECG">
-  <section class=" animate-fadeIn py-12">
-    <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-4xl font-bold text-center text-yellow-300 mb-6">
-        Herramientas Contables
-      </h1>
-      <p class="text-center text-lg text-whithe-600 mb-10">
-        Calcula fácilmente valores contables básicos para tu empresa o negocio.
+  <section class="hero-glow border-b border-line bg-paper">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Herramientas</p>
+      <h1 class="text-4xl md:text-5xl text-ink mb-4 max-w-2xl">Herramientas Contables</h1>
+      <p class="text-lg text-ink-muted max-w-2xl leading-relaxed">
+        Calcule fácilmente valores contables básicos para su empresa o negocio.
       </p>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-3 gap-8">
+  <section class="bg-surface-sunken/60">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <div class="grid md:grid-cols-3 gap-6">
         <!-- Calculadora IVA -->
-        <div class="bg-white/80 shadow rounded-2xl p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-blue-700 text-center">Calculadora IVA</h2>
+        <div class="bg-surface border border-line rounded-2xl shadow-sm p-7">
+          <h2 class="text-xl text-ink mb-5 text-center">Calculadora IVA</h2>
           <form id="ivaForm" class="space-y-4">
             <div>
-              <label for="valor" class="block text-sm font-medium text-gray-700">Valor sin IVA:</label>
-              <input type="number" id="valor" class="mt-1 block w-full  text-black border border-gray-800 rounded-md p-2" required />
+              <label for="valor" class="block text-sm font-medium text-ink-muted mb-1">Valor sin IVA:</label>
+              <input
+                type="number"
+                id="valor"
+                class="block w-full bg-paper text-ink border border-line rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-action/30 focus:border-action"
+                required
+              />
             </div>
             <div>
-              <label for="tarifa" class="block text-black text-sm font-medium text-gray-700">Tarifa IVA:</label>
-              <select id="tarifa" class="mt-1 block w-full text-black border border-gray-800 rounded-md p-2">
+              <label for="tarifa" class="block text-sm font-medium text-ink-muted mb-1">Tarifa IVA:</label>
+              <select
+                id="tarifa"
+                class="block w-full bg-paper text-ink border border-line rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-action/30 focus:border-action"
+              >
                 <option value="0.19">19%</option>
                 <option value="0.05">5%</option>
                 <option value="0">0%</option>
               </select>
             </div>
-            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Calcular</button>
+            <button
+              type="submit"
+              class="w-full bg-action text-white font-semibold px-4 py-2.5 rounded-lg hover:shadow-card transition-shadow"
+            >
+              Calcular
+            </button>
           </form>
-          <div id="resultadoIVA" class="mt-4 text-center text-gray-700"></div>
+          <div id="resultadoIVA" class="mt-4 text-center text-sm text-ink-muted [&_strong]:text-ink [&_strong]:tabular-nums"></div>
         </div>
 
-        <div class="bg-white/80 shadow rounded-2xl p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-blue-700 text-center">Retención en la Fuente</h2>
+        <!-- Retención en la fuente -->
+        <div class="bg-surface border border-line rounded-2xl shadow-sm p-7">
+          <h2 class="text-xl text-ink mb-5 text-center">Retención en la Fuente</h2>
           <form id="retForm" class="space-y-4">
             <div>
-              <label for="valorRet" class="block text-sm font-medium text-black">Valor del pago:</label>
+              <label for="valorRet" class="block text-sm font-medium text-ink-muted mb-1">Valor del pago:</label>
               <input
                 type="number"
                 id="valorRet"
-                class="mt-1 text-black block w-full border border-gray-800 rounded-md p-2"
+                class="block w-full bg-paper text-ink border border-line rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-action/30 focus:border-action"
                 step="0.01"
                 required
               />
             </div>
             <div>
-              <label for="tarifaRet" class="block text-sm font-medium text-black">Tarifa Retención (%):</label>
+              <label for="tarifaRet" class="block text-sm font-medium text-ink-muted mb-1">Tarifa Retención (%):</label>
               <input
                 type="number"
                 id="tarifaRet"
-                class="mt-1 text-black block w-full border border-gray-800 rounded-md p-2"
+                class="block w-full bg-paper text-ink border border-line rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-action/30 focus:border-action"
                 placeholder="Ej. 10"
                 step="0.01"
                 required
@@ -60,28 +77,45 @@ import Layout from '../layouts/Layout.astro';
             </div>
             <button
               type="submit"
-              class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+              class="w-full bg-action text-white font-semibold px-4 py-2.5 rounded-lg hover:shadow-card transition-shadow"
             >
               Calcular
             </button>
           </form>
-          <div id="resultadoRet" class="mt-4 text-center text-gray-700"></div>
+          <div id="resultadoRet" class="mt-4 text-center text-sm text-ink-muted [&_strong]:text-ink [&_strong]:tabular-nums"></div>
         </div>
-        
-        <div class="bg-white/80 shadow rounded-2xl p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-blue-700 text-center">Simulador de Nómina</h2>
+
+        <!-- Simulador de nómina -->
+        <div class="bg-surface border border-line rounded-2xl shadow-sm p-7">
+          <h2 class="text-xl text-ink mb-5 text-center">Simulador de Nómina</h2>
           <form id="nominaForm" class="space-y-4">
             <div>
-              <label for="salario" class="block text-sm font-medium text-gray-700">Salario Básico:</label>
-              <input type="number" id="salario" class="mt-1 text-black block w-full border border-gray-800 rounded-md p-2" required />
+              <label for="salario" class="block text-sm font-medium text-ink-muted mb-1">Salario Básico:</label>
+              <input
+                type="number"
+                id="salario"
+                class="block w-full bg-paper text-ink border border-line rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-action/30 focus:border-action"
+                required
+              />
             </div>
             <div>
-              <label for="dias" class="block text-sm font-medium text-gray-700">Días Trabajados:</label>
-              <input type="number" id="dias" class="mt-1 block text-black w-full border border-gray-800 rounded-md p-2" value="30" required />
+              <label for="dias" class="block text-sm font-medium text-ink-muted mb-1">Días Trabajados:</label>
+              <input
+                type="number"
+                id="dias"
+                class="block w-full bg-paper text-ink border border-line rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-action/30 focus:border-action"
+                value="30"
+                required
+              />
             </div>
-            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Calcular</button>
+            <button
+              type="submit"
+              class="w-full bg-action text-white font-semibold px-4 py-2.5 rounded-lg hover:shadow-card transition-shadow"
+            >
+              Calcular
+            </button>
           </form>
-          <div id="resultadoNomina" class="mt-4 text-center text-gray-700"></div>
+          <div id="resultadoNomina" class="mt-4 text-center text-sm text-ink-muted [&_strong]:text-ink [&_strong]:tabular-nums"></div>
         </div>
       </div>
     </div>

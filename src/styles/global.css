@@ -1,115 +1,106 @@
 @import "tailwindcss";
 /* global.css */
+
+@theme {
+  /* Paleta de marca — modo oscuro (default) */
+  --color-ink: #eaf1f8;
+  --color-ink-muted: #9fb0cc;
+  --color-ink-faint: #64749a;
+  --color-surface: #131f35;
+  --color-surface-sunken: #0f1b2e;
+  --color-paper: #0a1424;
+  --color-action: #2a63d8;
+  --color-accent: #2dd4a7;
+  --color-accent-2: #34d399;
+  --color-gold: #d4a44c;
+  --color-line: #24314a;
+
+  /* Tokens invariantes: mismo valor en ambos modos (banda oscura de cierre / texto sobre superficies blancas) */
+  --color-band: #0f1b2e;
+  --color-navy: #16233f;
+
+  /* Tipografía: Inter para cuerpo/UI, Source Serif 4 para títulos */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+
+  /* Sombra — se ajusta por modo más abajo */
+  --shadow-card: 0 20px 44px -14px rgb(0 0 0 / 0.55), 0 6px 14px -8px rgb(0 0 0 / 0.35);
+}
+
+html {
+  color-scheme: dark;
+}
+
+/* Modo día — opt-in vía clase .light en <html>, nunca por prefers-color-scheme */
+html.light {
+  color-scheme: light;
+  --color-ink: #16233f;
+  --color-ink-muted: #52607a;
+  --color-ink-faint: #8492ac;
+  --color-surface: #fffcf6;
+  --color-surface-sunken: #f1e9d8;
+  --color-paper: #faf6ee;
+  --color-action: #1e5aa8;
+  --color-accent: #0f9d74;
+  --color-accent-2: #129c6b;
+  --color-gold: #b8892e;
+  --color-line: #e8dfcb;
+  --shadow-card: 0 20px 44px -14px rgb(15 120 90 / 0.14), 0 8px 18px -8px rgb(184 137 46 / 0.12);
+}
+
 html, body {
-  font-family: 'Nadeem', sans-serif;
-  background:  Linear-gradient(to right, #1717ec, #5cc6dbaf, #58ffe098);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
-  position: relative;
-  color: white; 
-
-}
-body::before {
-  content: '';
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.50); 
-  z-index: -1;     
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
 }
 
-  
-  h1, h2, h3, h4, h5 {
-    font-family: 'Outfit', sans-serif;
-  }
+/* Textura exclusiva de la primera sección (hero) de cada página, solo en modo oscuro:
+   líneas horizontales sutiles + resplandor verde esmeralda centrado, desvanecido hacia los bordes. */
+html:not(.light) .hero-glow {
+  background-image:
+    radial-gradient(circle at center, color-mix(in srgb, var(--color-accent-2) 12%, transparent) 0%, transparent 60%),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+}
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  header,
+  footer,
+  section,
+  aside,
+  a,
+  button,
+  input,
+  select,
+  svg,
+  .faq-item,
+  .drawer {
+    transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, fill 300ms ease, box-shadow 300ms ease;
   }
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
   .animate-fadeIn {
-    animation: fadeIn 1s ease-out forwards;
+    animation: none;
   }
-
-  .backdrop-blur-xl {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  
-.info-marzo{
-  color:#7171f5;
-}
-
-.whatsapp-fab {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 999;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 200ms ease;
-
-  /* Bounce de entrada + titileo infinito */
-  animation:
-    fab-bounce-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both,
-    titilar 2s ease-in-out 1.4s infinite;
-}
-
-.whatsapp-fab:hover {
-  transform: scale(1.12) translateY(-3px);
-  animation-play-state: paused;
-}
-
-/* Tooltip */
-.whatsapp-tooltip {
-  position: absolute;
-  right: calc(100% + 14px);
-  background: #1A1F2E;
-  color: #fff;
-  font-size: 0.8rem;
-  white-space: nowrap;
-  padding: 7px 14px;
-  border-radius: 8px;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateX(8px);
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.whatsapp-tooltip::after {
-  content: '';
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 6px solid transparent;
-  border-left-color: #1A1F2E;
-}
-
-.whatsapp-fab:hover .whatsapp-tooltip {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Keyframes */
-@keyframes fab-bounce-in {
-  0%   { transform: scale(0); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes titilar {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);    background: #25D366; }
-  30%      { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0.35); background: #2edf6e; }
-  60%      { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);    background: #25D366; }
-  80%      { box-shadow: 0 0 0 6px rgba(37, 211, 102, 0.2);  background: #2edf6e; }
 }

@@ -1,57 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
 ---
 
 <Layout title="Nosotros - Contables ECG">
-  <section class="py-12 bg-black/20 rounded-3xl text-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <div class="rounded-xl p-10 mb-12 text-center">
-        <h1 class="text-4xl font-bold text-yellow-400 mb-6 animate-slideFade">
-          ¿Quiénes Somos?
-        </h1>
+  <section class="hero-glow border-b border-line bg-paper">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Nosotros</p>
+      <h1 class="text-4xl md:text-5xl text-ink mb-4 max-w-2xl">¿Quiénes somos?</h1>
+      <p class="text-lg text-ink-muted max-w-2xl leading-relaxed">
+        Una firma de asesoría contable y tributaria comprometida con el crecimiento sostenible y la
+        tranquilidad financiera de nuestros clientes.
+      </p>
+    </div>
+  </section>
 
-        <div class="space-y-6 animate-fadeIn text-lg text-gray-200 leading-relaxed">
-          <p>
-            Somos una firma de asesoría contable y tributaria comprometida con el crecimiento sostenible y la tranquilidad financiera de nuestros clientes.
-          </p>
-          <p>
-            Ofrecemos soluciones integrales y personalizadas para personas naturales, emprendedores y pequeñas empresas, acompañándolos en la toma de decisiones estratégicas y en el cumplimiento oportuno de sus obligaciones fiscales.
-          </p>
-          <p>
-            Combinamos experiencia técnica con una visión estratégica del negocio para impulsar resultados y generar confianza. Más que un proveedor de servicios, somos su aliado en el camino hacia la estabilidad y el éxito financiero.
-          </p>
-        </div>
+  <section class="bg-paper">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <div class="max-w-3xl space-y-6 text-lg text-ink-muted leading-relaxed mb-16">
+        <p>
+          Ofrecemos soluciones integrales y personalizadas para personas naturales, emprendedores y
+          pequeñas empresas, acompañándolos en la toma de decisiones estratégicas y en el
+          cumplimiento oportuno de sus obligaciones fiscales.
+        </p>
+        <p>
+          Combinamos experiencia técnica con una visión estratégica del negocio para impulsar
+          resultados y generar confianza. Más que un proveedor de servicios, somos su aliado en el
+          camino hacia la estabilidad y el éxito financiero.
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <img 
-          src="/images/equipo.webp" 
-          alt="Nuestro equipo 1" 
-          class="rounded-xl shadow-lg object-cover w-full h-80"
+      <div class="grid md:grid-cols-2 gap-6">
+        <img
+          src="/images/equipo.webp"
+          alt="Nuestro equipo 1"
+          class="rounded-2xl border border-line shadow-sm object-cover w-full h-80"
         />
-        <img 
-          src="/images/equipo2.webp" 
-          alt="Nuestro equipo 2" 
-          class="rounded-xl shadow-lg object-cover w-full h-80"
+        <img
+          src="/images/equipo2.webp"
+          alt="Nuestro equipo 2"
+          class="rounded-2xl border border-line shadow-sm object-cover w-full h-80"
         />
       </div>
     </div>
   </section>
 
-  <style>
-    @keyframes slideFade {
-      0% {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-slideFade {
-      animation: slideFade 1s ease-out forwards;
-    }
-  </style>
+  <CtaBand
+    heading="¿Quiere trabajar con nosotros?"
+    subheading="Conversemos sobre su situación contable y tributaria."
+  />
 </Layout>

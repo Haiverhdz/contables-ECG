@@ -1,80 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { services } from '../data/services';
 ---
 
 <Layout title="Servicios - Contables ECG">
-  <section class="py-12">
-    <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-4xl font-bold text-center animate-fadeIn text-yellow-400">
-        Nuestros Servicios
+  <section class="hero-glow border-b border-line bg-paper">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Servicios</p>
+      <h1 class="text-4xl md:text-5xl text-ink mb-4 max-w-2xl">
+        Soluciones contables y tributarias, de punta a punta
       </h1>
-      <p class="text-center animate-fadeIn text-lg text-whithe-600 mb-10">
-        Ofrecemos soluciones integrales en materia contable y financiera para empresas y personas.
+      <p class="text-lg text-ink-muted max-w-2xl leading-relaxed">
+        Ofrecemos acompañamiento integral en materia contable, tributaria y laboral para empresas y
+        personas naturales.
       </p>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Contabilidad General -->
-        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
-          <div class="text-5xl mb-4">📊</div>
-          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Contabilidad General</h2>
-          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
-            <li>Registro y control de operaciones contables.</li>
-            <li>Elaboración de estados financieros bajo NIIF.</li>
-            <li>Conciliaciones bancarias y revisión de cuentas.</li>
-            <li>Contabilidad mensual, trimestral o anual.</li>
-          </ul>
-        </div>
-
-        <!-- Asesoría Tributaria -->
-        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
-          <div class="text-5xl mb-4">💼</div>
-          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Asesoría Tributaria</h2>
-          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
-            <li>Declaración de renta personas naturales y jurídicas.</li>
-            <li>Declaraciones de IVA, retención en la fuente, ICA, entre otros.</li>
-            <li>Planeación tributaria para optimizar cargas fiscales.</li>
-            <li>Atención de requerimientos por parte de la DIAN y entes territoriales.</li>
-          </ul>
-        </div>
-
-        <!-- Nómina y Seguridad Social -->
-        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
-          <div class="text-5xl mb-4">👥</div>
-          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Nómina y Seguridad Social</h2>
-          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
-            <li>Liquidación de nómina mensual y prestaciones sociales.</li>
-            <li>Elaboración de planillas PILA.</li>
-            <li>Asesoría laboral y cumplimiento normativo.</li>
-          </ul>
-        </div>
-
-        <!-- Constitución y Formalización de Empresas -->
-        <div class="bg-black/50 shadow rounded-2xl p-8 hover:shadow-xl transition-all text-center">
-          <div class="text-5xl mb-4">🏢</div>
-          <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Constitución y Formalización de Empresas</h2>
-          <ul class="list-disc list-inside text-whithe-600 text-left space-y-2">
-            <li>Acompañamiento en el proceso de creación de empresas.</li>
-            <li>Registro en Cámara de Comercio y DIAN.</li>
-            <li>Asesoría en elección de régimen tributario.</li>
-            <li>Diseño de estructura contable y administrativa.</li>
-          </ul>
-        </div>
+  <section class="bg-surface-sunken/60">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <div class="grid md:grid-cols-2 gap-6">
+        {services.map((service) => (
+          <ServiceCard icon={service.icon} title={service.title} items={service.items} />
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Sección foto equipo -->
-  <section class="relative py-12">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-yellow-300">Nuestro Equipo</h2>
-      <p class="text-whithe-600 mb-6">
-        Conoce a las personas que hacen posible cada servicio.
+  <section class="bg-paper">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20 text-center">
+      <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Nuestro equipo</p>
+      <h2 class="text-3xl md:text-4xl text-ink mb-4">Conozca a quienes hacen posible cada servicio</h2>
+      <p class="text-ink-muted max-w-xl mx-auto mb-10 leading-relaxed">
+        Un equipo cercano, atento a los detalles y comprometido con el cumplimiento de sus
+        obligaciones.
       </p>
-      <img 
-        src="/images/quienes-somos.webp" 
-        alt="Equipo de trabajo Contables ECG" 
-        class="rounded-2xl shadow-lg mx-auto max-h-[400px] object-cover"
+      <img
+        src="/images/quienes-somos.webp"
+        alt="Equipo de trabajo Contables ECG"
+        class="rounded-2xl shadow-card mx-auto max-h-[420px] w-full max-w-3xl object-cover"
       />
     </div>
   </section>
+
+  <CtaBand />
 </Layout>

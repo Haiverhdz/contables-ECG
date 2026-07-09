@@ -1,0 +1,40 @@
+---
+interface Props {
+  icon: string[];
+  title: string;
+  description?: string;
+  items?: string[];
+}
+
+const { icon, title, description, items } = Astro.props;
+---
+
+<div class="bg-surface border border-line rounded-2xl p-7 shadow-sm hover:shadow-card transition-shadow">
+  <div class="w-11 h-11 rounded-xl bg-action/10 text-action flex items-center justify-center mb-5">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      width="22"
+      height="22"
+      aria-hidden="true"
+    >
+      {icon.map((d) => <path d={d} />)}
+    </svg>
+  </div>
+  <h3 class="text-lg text-ink mb-2">{title}</h3>
+  {description && <p class="text-sm text-ink-muted leading-relaxed">{description}</p>}
+  {items && (
+    <ul class="space-y-2 text-sm text-ink-muted mt-1">
+      {items.map((item) => (
+        <li class="flex gap-2">
+          <span class="text-accent">›</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

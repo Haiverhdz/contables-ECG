@@ -1,0 +1,96 @@
+---
+const phone = "573137502693";
+const message = "Hola, me gustaría obtener más información";
+const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="whatsapp-fab"
+  aria-label="Contactar por WhatsApp"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="28" height="28">
+    <path
+      d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.486 2.027 7.793L0 32l8.418-2.003A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.77-1.847l-.485-.29-5.003 1.19 1.234-4.862-.317-.5A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.355-1.162-2.72-1.294-.366-.133-.632-.199-.898.199-.265.398-1.03 1.294-1.263 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.202-1.976-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.2-.232.266-.398.398-.663.133-.265.067-.498-.033-.697-.1-.2-.898-2.165-1.23-2.963-.324-.778-.654-.673-.898-.685l-.765-.013c-.265 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.322s1.428 3.852 1.627 4.117c.2.265 2.81 4.29 6.808 6.017.951.411 1.694.656 2.272.84.955.304 1.824.261 2.511.158.766-.114 2.355-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.1-.166-.365-.265-.763-.464z"
+    ></path>
+  </svg>
+  <span class="whatsapp-tooltip">¿Hablamos?</span>
+</a>
+
+<style>
+  .whatsapp-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 200ms ease;
+
+    /* Bounce de entrada + titileo infinito */
+    animation:
+      fab-bounce-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both,
+      titilar 2s ease-in-out 1.4s infinite;
+  }
+
+  .whatsapp-fab:hover {
+    transform: scale(1.12) translateY(-3px);
+    animation-play-state: paused;
+  }
+
+  .whatsapp-tooltip {
+    position: absolute;
+    right: calc(100% + 14px);
+    background: #1a1f2e;
+    color: #fff;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    padding: 7px 14px;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+
+  .whatsapp-tooltip::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: #1a1f2e;
+  }
+
+  .whatsapp-fab:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @keyframes fab-bounce-in {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes titilar {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); background: #25d366; }
+    30% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0.35); background: #2edf6e; }
+    60% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); background: #25d366; }
+    80% { box-shadow: 0 0 0 6px rgba(37, 211, 102, 0.2); background: #2edf6e; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .whatsapp-fab {
+      animation: none;
+    }
+  }
+</style>

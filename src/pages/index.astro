@@ -1,161 +1,293 @@
-npm---
-import Layout from '../layouts/Layout.astro';
 ---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { services } from '../data/services';
+
+const whyUs = [
+  {
+    title: 'Cumplimiento sin sorpresas',
+    description: 'Declaraciones y obligaciones presentadas a tiempo, siempre.',
+    icon: ['M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z', 'M9 12l2 2 4-4'],
+  },
+  {
+    title: 'Acompañamiento cercano',
+    description: 'Explicamos cada cifra en términos claros, no en jerga contable.',
+    icon: ['M4 5h16v11H8l-4 4z'],
+  },
+  {
+    title: 'Visión estratégica',
+    description: 'No solo llevamos sus números: le ayudamos a leerlos y decidir con ellos.',
+    icon: ['M3 17l6-6 4 4 8-8', 'M15 7h6v6'],
+  },
+  {
+    title: 'Respuesta ágil',
+    description: 'Consultas resueltas por WhatsApp o correo, el mismo día hábil.',
+    icon: ['M12 21a9 9 0 100-18 9 9 0 000 18z', 'M12 7v5l4 2'],
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      'Desde que trabajamos con Contables ECG dejamos de improvisar con la DIAN. Todo llega a tiempo y con explicación clara.',
+    name: 'Nombre Apellido',
+    role: 'Cargo, Empresa — reemplazar con testimonio real',
+  },
+  {
+    quote:
+      'Nos ayudaron a formalizar la empresa desde cero y hoy seguimos trabajando juntos en la planeación tributaria anual.',
+    name: 'Nombre Apellido',
+    role: 'Cargo, Empresa — reemplazar con testimonio real',
+  },
+];
+---
+
 <Layout title="Inicio - Contables ECG">
-  <section
-  class="relative bg-cover flex flex-col items-center bg-center rounded-3xl h-[330px] overflow-hidden"
-  style="background-image: url('/images/servicio.webp');"
->
-  <div class="absolute inset-0 rounded-3xl backdrop-blur-[3px] bg-black/20"></div>
-
-  <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/40 via-black/30 to-transparent"></div>
-
-  <div class="relative z-10 max-w-4xl mx-auto px-6 py-16 text-center flex flex-col items-center justify-center h-full">
-    <h2 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4 animate-fadeIn">
-      ¡Bienvenido a Contables ECG!
-    </h2>
-    <p class="text-lg md:text-2xl text-gray-200 mb-8 drop-shadow-md animate-fadeIn">
-      Servicios contables y financieros de confianza para empresas y personas.
-    </p>
-
-    <a
-      href="/servicios"
-      class="bg-yellow-400 text-blue-900 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-yellow-300 transition-all"
-    >
-      Conoce nuestros servicios
-    </a>
-  </div>
-</section>
-
-
-  <div class="h-12"></div> 
-
-<section class="bg-black/50 text-white rounded-3xl py-8 mb-10">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center px-4">
-
-    <!-- Imagen -->
-    <div class="flex justify-center">
-      <img
-        src="/images/info-junio.webp"
-        alt="Descripción de la imagen"
-        class="w-full max-w-md rounded-2xl object-cover"
-      />
-    </div>
-
-    <!-- Texto -->
-    <div class="flex flex-col gap-4">
-      <h2 class="text-3xl font-semibold leading-tight">
-         Ofrecemos 
-      </h2>
-      <p class="text-white/70 text-base leading-relaxed">
-       Servicio de afiliacion a la seguridad social y ARL.
-      </p>
-      <br>
-      <p class="text-white/70 text-base leading-relaxed">
-        ¡Cumplir es proteger, nosotros te ayudamos! , evita saciones, cumple la ley y brinda seguridad a tu equipo.
-      </p>
-      <a
-        href="/contacto"
-        class="self-start bg-yellow-400 text-blue-900 font-semibold text-sm px-6 py-3 rounded-xl hover:bg-yellow-300 transition"
-      >
-        Más información
-      </a>
-    </div>
-
-  </div>
-</section>
-
-  <section class="bg-black/50 rounded-3xl text-white py-6 mb-8">
-    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 items-center px-4">
-      <img
-        src="/images/Sello_Distribuidor_Autorizado_Azul_1x.png"
-        alt="Vencimientos declaración de renta septiembre"
-        class="rounded-lg shadow-md object-cover"
-      />
-
-      <div>
-        <h2 class="text-2xl font-bold mb-2"> ⚙️ Impulsa tu contabilidad con FacturaTech</h2>
-        <p class="mb-4">
-          Ahora puedes facturar, controlar y automatizar tu contabilidad desde una sola plataforma.
-          Rápido, confiable y 100% en línea.
+  <!-- HERO -->
+  <section class="hero-glow bg-paper border-b border-line">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-[1.05fr_0.85fr] gap-12 lg:gap-16 items-center">
+      <div class="animate-fadeIn">
+        <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-accent mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+          Contadores públicos · Asesoría tributaria y financiera
         </p>
+        <h1 class="text-4xl md:text-6xl leading-[1.08] text-ink mb-5">
+          Cuentas claras.<br />Decisiones <em class="italic text-accent">con criterio.</em>
+        </h1>
+        <p class="text-lg text-ink-muted max-w-xl mb-8 leading-relaxed">
+          Llevamos la contabilidad, la nómina y las obligaciones tributarias de su empresa con la
+          precisión que exige la DIAN y el acompañamiento cercano que su negocio necesita.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 mb-10">
+          <a
+            href="/contacto"
+            class="inline-flex items-center gap-2 bg-action text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-sm hover:shadow-card hover:-translate-y-0.5 transition-all"
+          >
+            Agende una asesoría
+          </a>
+          <a
+            href="/servicios"
+            class="inline-flex items-center gap-2 border border-line text-ink text-sm font-semibold px-6 py-3.5 rounded-xl hover:bg-surface-sunken transition-colors"
+          >
+            Ver servicios
+          </a>
+        </div>
+        <dl class="flex flex-wrap gap-x-10 gap-y-5 pt-7 border-t border-line">
+          <div>
+            <dt class="font-serif text-3xl font-semibold text-ink tabular-nums">+12</dt>
+            <dd class="text-sm text-ink-muted mt-1 max-w-[16ch]">años asesorando empresas y personas naturales</dd>
+          </div>
+          <div>
+            <dt class="font-serif text-3xl font-semibold text-ink tabular-nums">180+</dt>
+            <dd class="text-sm text-ink-muted mt-1 max-w-[16ch]">empresas con su contabilidad al día</dd>
+          </div>
+          <div>
+            <dt class="font-serif text-3xl font-semibold text-ink tabular-nums">100%</dt>
+            <dd class="text-sm text-ink-muted mt-1 max-w-[16ch]">declaraciones presentadas a tiempo</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Tarjeta visual -->
+      <div class="relative animate-fadeIn">
+        <div class="bg-surface border border-line rounded-2xl shadow-card p-6 rotate-1">
+          <div class="flex items-start justify-between mb-5">
+            <div>
+              <h2 class="text-lg text-ink">Balance General</h2>
+              <p class="text-xs text-ink-faint mt-0.5">Corte al 30 de junio de 2026</p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-2 bg-accent-2/10 px-2.5 py-1 rounded-full whitespace-nowrap">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent-2"></span>
+              Al día
+            </span>
+          </div>
+          <ul class="mb-5">
+            <li class="flex justify-between items-baseline py-2.5 border-b border-dashed border-line text-sm">
+              <span class="text-ink-muted">Activos corrientes</span>
+              <span class="tabular-nums text-ink whitespace-nowrap">$284.500.000</span>
+            </li>
+            <li class="flex justify-between items-baseline py-2.5 border-b border-dashed border-line text-sm">
+              <span class="text-ink-muted">Pasivos corrientes</span>
+              <span class="tabular-nums text-ink whitespace-nowrap">$96.200.000</span>
+            </li>
+            <li class="flex justify-between items-baseline py-2.5 text-sm font-semibold">
+              <span class="text-ink">Patrimonio</span>
+              <span class="tabular-nums text-ink whitespace-nowrap">$188.300.000</span>
+            </li>
+          </ul>
+          <div class="bg-surface-sunken rounded-xl p-4">
+            <div class="flex justify-between items-baseline mb-2">
+              <span class="text-xs text-ink-muted font-medium">Utilidad — últimos 6 meses</span>
+              <span class="text-xs font-bold text-accent-2 tabular-nums">↑ 18,4%</span>
+            </div>
+            <div class="relative leading-none">
+              <svg viewBox="0 0 260 56" class="w-full h-auto" preserveAspectRatio="none" role="img" aria-label="Tendencia de utilidad ascendente en los últimos seis meses">
+                <polyline
+                  points="0,46 40,42 80,44 120,30 160,26 200,14 260,6"
+                  fill="none"
+                  stroke="var(--color-accent-2)"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></polyline>
+                <circle cx="260" cy="6" r="4" fill="var(--color-accent-2)"></circle>
+              </svg>
+              <div class="spark-mask absolute inset-0"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -right-3 -bottom-4 bg-surface border border-line rounded-xl shadow-card px-4 py-3 flex items-center gap-2.5 -rotate-3">
+          <span class="w-8 h-8 rounded-lg bg-gold/15 text-gold flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+          </span>
+          <span>
+            <strong class="block text-xs text-ink">Declaración de renta</strong>
+            <span class="block text-[11px] text-ink-faint">Vence en 14 días</span>
+          </span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="max-w-6xl px-4 py-12 grid md:grid-cols-2 gap-8">
-    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
-      <div class="text-5xl mb-4">📊</div>
-      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Contabilidad General</h2>
-      <ul class="list-disc list-inside text-left space-y-2">
-        <li>Registro y control de operaciones contables.</li>
-        <li>Elaboración de estados financieros bajo NIIF.</li>
-        <li>Conciliaciones bancarias y revisión de cuentas.</li>
-        <li>Contabilidad mensual, trimestral o anual.</li>
-      </ul>
-    </div>
-  
-    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
-      <div class="text-5xl mb-4">💼</div>
-      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Asesoría Tributaria</h2>
-      <ul class="list-disc list-inside text-left space-y-2">
-        <li>Declaración de renta personas naturales y jurídicas.</li>
-        <li>Declaraciones de IVA, retención en la fuente, ICA, entre otros.</li>
-        <li>Planeación tributaria para optimizar cargas fiscales.</li>
-        <li>Atención de requerimientos por parte de la DIAN y entes territoriales.</li>
-      </ul>
-    </div>
-  
-    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
-      <div class="text-5xl mb-4">👥</div>
-      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Nómina y Seguridad Social</h2>
-      <ul class="list-disc list-inside text-left space-y-2">
-        <li>Liquidación de nómina mensual y prestaciones sociales.</li>
-        <li>Elaboración de planillas PILA.</li>
-        <li>Asesoría laboral y cumplimiento normativo.</li>
-      </ul>
-    </div>
-  
-    <div class="bg-black/50 rounded-2xl p-8 hover:shadow-xl transition-all text-white text-center">
-      <div class="text-5xl mb-4">🏢</div>
-      <h2 class="text-2xl font-semibold mb-4 text-yellow-300">Constitución y Formalización de Empresas</h2>
-      <ul class="list-disc list-inside text-left space-y-2">
-        <li>Acompañamiento en el proceso de creación de empresas.</li>
-        <li>Registro en Cámara de Comercio y DIAN.</li>
-        <li>Asesoría en elección de régimen tributario.</li>
-        <li>Diseño de estructura contable y administrativa.</li>
-      </ul>
+  <!-- SERVICIOS -->
+  <section class="bg-surface-sunken/60 border-b border-line">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-24">
+      <div class="max-w-2xl mb-12">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Servicios</p>
+        <h2 class="text-3xl md:text-4xl text-ink mb-4">Todo lo que su contabilidad necesita, en un solo lugar</h2>
+        <p class="text-ink-muted text-lg leading-relaxed">
+          Desde el registro contable del día a día hasta la planeación tributaria de largo plazo.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((service) => (
+          <ServiceCard icon={service.icon} title={service.title} description={service.description} />
+        ))}
+      </div>
+      <div class="mt-10">
+        <a href="/servicios" class="inline-flex items-center gap-1.5 text-action font-semibold text-sm group">
+          Ver todos los servicios
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-0.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeIn {
-      animation: fadeIn 1s ease-out forwards;
-    }
-  </style>
+  <!-- POR QUÉ ELEGIRNOS -->
+  <section class="bg-paper">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-24">
+      <div class="max-w-2xl mb-12">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Por qué elegirnos</p>
+        <h2 class="text-3xl md:text-4xl text-ink mb-4">Contabilidad que se entiende, no solo se entrega</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {whyUs.map((reason) => (
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true">
+                {reason.icon.map((d) => <path d={d} />)}
+              </svg>
+            </div>
+            <h3 class="text-ink mb-1.5 font-semibold">{reason.title}</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">{reason.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ALIANZAS -->
+  <section class="bg-surface-sunken/60 border-y border-line">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-24">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-surface border border-line rounded-2xl overflow-hidden shadow-sm">
+          <img
+            src="/images/info-junio.webp"
+            alt="Afiliación a seguridad social y ARL"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-7">
+            <h3 class="text-xl text-ink mb-2">Afiliación a Seguridad Social y ARL</h3>
+            <p class="text-sm text-ink-muted leading-relaxed mb-5">
+              ¡Cumplir es proteger! Le ayudamos a afiliar a su equipo, evitar sanciones y cumplir la
+              ley con tranquilidad.
+            </p>
+            <a href="/contacto" class="inline-flex items-center gap-1.5 text-action font-semibold text-sm">
+              Más información →
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-surface border border-line rounded-2xl overflow-hidden shadow-sm">
+          <img
+            src="/images/Sello_Distribuidor_Autorizado_Azul_1x.webp"
+            alt="Distribuidor autorizado FacturaTech"
+            class="w-full h-48 object-contain bg-white p-6"
+          />
+          <div class="p-7">
+            <h3 class="text-xl text-ink mb-2">Impulse su contabilidad con FacturaTech</h3>
+            <p class="text-sm text-ink-muted leading-relaxed mb-5">
+              Facture, controle y automatice su contabilidad desde una sola plataforma. Rápido,
+              confiable y 100% en línea.
+            </p>
+            <a href="/contacto" class="inline-flex items-center gap-1.5 text-action font-semibold text-sm">
+              Conocer más →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="bg-paper">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-24">
+      <div class="max-w-2xl mb-12">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Casos de éxito</p>
+        <h2 class="text-3xl md:text-4xl text-ink mb-4">La confianza de quienes ya trabajan con nosotros</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        {testimonials.map((t) => (
+          <blockquote class="bg-surface border border-line rounded-2xl p-8 shadow-sm">
+            <svg class="w-8 h-8 text-accent/30 mb-4" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+              <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
+            </svg>
+            <p class="text-ink text-lg leading-relaxed mb-6">"{t.quote}"</p>
+            <footer class="text-sm">
+              <p class="font-semibold text-ink">{t.name}</p>
+              <p class="text-ink-faint">{t.role}</p>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
 </Layout>
 
-<script>
-let img1 = document.getElementById("img1")
-let img2 = document.getElementById("img2")
-
-let showingFirst = true
-
-setInterval(() => {
-
-  if(showingFirst){
-    img1.style.opacity = "0"
-    img2.style.opacity = "1"
-  }else{
-    img1.style.opacity = "1"
-    img2.style.opacity = "0"
+<style>
+  .spark-mask {
+    background: var(--color-surface-sunken);
   }
-
-  showingFirst = !showingFirst
-
-}, 10000)
-</script>
+  @media (prefers-reduced-motion: no-preference) {
+    .spark-mask {
+      animation: reveal-spark 1.2s 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .spark-mask {
+      display: none;
+    }
+  }
+  @keyframes reveal-spark {
+    from { clip-path: inset(0 0 0 0%); }
+    to { clip-path: inset(0 0 0 100%); }
+  }
+</style>
