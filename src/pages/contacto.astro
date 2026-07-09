@@ -58,11 +58,14 @@ const faqs = [
 ---
 
 <Layout title="Contáctanos - Contables ECG">
-  <section class="hero-glow border-b border-line bg-paper">
+  <section class="hero-glow bg-gradient-brand">
     <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
-      <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3">Contacto</p>
-      <h1 class="text-4xl md:text-5xl text-ink mb-4 max-w-2xl">Contáctanos</h1>
-      <p class="text-lg text-ink-muted max-w-2xl leading-relaxed">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-white mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span>
+        Contacto
+      </p>
+      <h1 class="text-4xl md:text-6xl leading-[1.08] text-white mb-4 max-w-2xl">Contáctanos<span class="text-white/50">.</span></h1>
+      <p class="text-lg text-white/85 max-w-2xl leading-relaxed">
         Elija su método de contacto preferido y le responderemos a la brevedad.
       </p>
     </div>
@@ -200,10 +203,14 @@ const faqs = [
           </a>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section class="bg-gradient-brand">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
       <div id="preguntas" class="max-w-3xl mx-auto">
-        <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-3 text-center">FAQ</p>
-        <h2 class="text-3xl md:text-4xl text-ink mb-10 text-center">Preguntas frecuentes</h2>
+        <p class="text-xs font-semibold uppercase tracking-wide text-white mb-3 text-center">FAQ</p>
+        <h2 class="text-3xl md:text-4xl text-white mb-10 text-center">Preguntas frecuentes</h2>
 
         <div id="faq" class="space-y-3">
           {faqs.map((item) => (

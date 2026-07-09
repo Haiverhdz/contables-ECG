@@ -2,21 +2,20 @@
 /* global.css */
 
 @theme {
-  /* Paleta de marca — modo oscuro (default) */
-  --color-ink: #eaf1f8;
-  --color-ink-muted: #9fb0cc;
-  --color-ink-faint: #64749a;
-  --color-surface: #131f35;
-  --color-surface-sunken: #0f1b2e;
-  --color-paper: #0a1424;
-  --color-action: #2a63d8;
-  --color-accent: #2dd4a7;
-  --color-accent-2: #34d399;
-  --color-gold: #d4a44c;
-  --color-line: #24314a;
+  /* Paleta de marca — modo día (default) — derivada de #0d65b4 / #1f93b5 / #3cb4a8 */
+  --color-ink: #16233f;
+  --color-ink-muted: #52607a;
+  --color-ink-faint: #8492ac;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #eaf2f4;
+  --color-paper: #f4f9fa;
+  --color-action: #0d65b4;
+  --color-accent: #3cb4a8;
+  --color-accent-2: #1f93b5;
+  --color-line: #d8e6ea;
 
   /* Tokens invariantes: mismo valor en ambos modos (banda oscura de cierre / texto sobre superficies blancas) */
-  --color-band: #0f1b2e;
+  --color-band: #0a2530;
   --color-navy: #16233f;
 
   /* Tipografía: Inter para cuerpo/UI, Source Serif 4 para títulos */
@@ -24,28 +23,27 @@
   --font-serif: 'Source Serif 4', Georgia, serif;
 
   /* Sombra — se ajusta por modo más abajo */
-  --shadow-card: 0 20px 44px -14px rgb(0 0 0 / 0.55), 0 6px 14px -8px rgb(0 0 0 / 0.35);
+  --shadow-card: 0 20px 44px -14px rgb(13 101 180 / 0.14), 0 8px 18px -8px rgb(31 147 181 / 0.12);
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-/* Modo día — opt-in vía clase .light en <html>, nunca por prefers-color-scheme */
-html.light {
-  color-scheme: light;
-  --color-ink: #16233f;
-  --color-ink-muted: #52607a;
-  --color-ink-faint: #8492ac;
-  --color-surface: #fffcf6;
-  --color-surface-sunken: #f1e9d8;
-  --color-paper: #faf6ee;
-  --color-action: #1e5aa8;
-  --color-accent: #0f9d74;
-  --color-accent-2: #129c6b;
-  --color-gold: #b8892e;
-  --color-line: #e8dfcb;
-  --shadow-card: 0 20px 44px -14px rgb(15 120 90 / 0.14), 0 8px 18px -8px rgb(184 137 46 / 0.12);
+/* Modo oscuro — opt-in vía clase .dark en <html>, nunca por prefers-color-scheme */
+html.dark {
+  color-scheme: dark;
+  --color-ink: #eaf1f8;
+  --color-ink-muted: #9fb0cc;
+  --color-ink-faint: #64749a;
+  --color-surface: #131f35;
+  --color-surface-sunken: #0f1b2e;
+  --color-paper: #0a1424;
+  --color-action: #3c81c4;
+  --color-accent: #63c3b6;
+  --color-accent-2: #4aa3bd;
+  --color-line: #24314a;
+  --shadow-card: 0 20px 44px -14px rgb(0 0 0 / 0.55), 0 6px 14px -8px rgb(0 0 0 / 0.35);
 }
 
 html, body {
@@ -54,9 +52,21 @@ html, body {
   color: var(--color-ink);
 }
 
+/* Fondo de marca — gradiente horizontal con los tres colores base, para las
+   secciones de apertura y cierre de una página. Invariante entre modos, igual
+   que --color-band. */
+.bg-gradient-brand {
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in srgb, #0d65b4 85%, black 15%),
+    color-mix(in srgb, #1f93b5 85%, black 15%),
+    color-mix(in srgb, #3cb4a8 85%, black 15%)
+  );
+}
+
 /* Textura exclusiva de la primera sección (hero) de cada página, solo en modo oscuro:
    líneas horizontales sutiles + resplandor verde esmeralda centrado, desvanecido hacia los bordes. */
-html:not(.light) .hero-glow {
+html.dark .hero-glow {
   background-image:
     radial-gradient(circle at center, color-mix(in srgb, var(--color-accent-2) 12%, transparent) 0%, transparent 60%),
     repeating-linear-gradient(
